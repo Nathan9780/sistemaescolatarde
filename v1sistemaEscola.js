@@ -80,27 +80,46 @@ if (indexCurso !== -1) {
 
     let info = "\N Alunos Cadastrados:\n";
     if (alunos.length > 0) {
-        for (let i = 0 ; i < alunos.length; i++){
-            info += " - " + alunos[i] + "\n"
+        let curso;
+        if (alunos[i].curso) {
+            curso = alunos[1].curso;
+        }else{
+            curso = "Não matriculado";
+            
         }
         
+        console.log( "- " + alunos[1].nome + " (Curso: " + curso )
+
     }else{
-        info += "Nenhum aluno cadastrado.\n";
+        console.log( "Nenhum aluno cadastrado.\n");
     }
-    info += 'cursos cadastrados:\n'
+     console.log('cursos cadastrados:\n')
 if (cursos.length > 0) {
 for (let i = 0; i < cursos.length; i++){
-    info += " - " + cursos[i] + "\n";
+    console.log("- " + cursos[i]);
 }
 }else{
-    info += "Nenhum curso cadastrado.\n"
+    console.log("Nenhum curso cadastrado.\n")
 }
       break;
 
       case '6':
 
+    if (alunos.length === 0 || cursos.length === 0) {
+    console.log("É necessário ter alunos e cursos cadastrados")
+    break;
+    }
+    let nomeMatricula = prompt("Digite o nome do aluno para a matricula")
+    let aluno = null;
+    for (let i = 0; i < alunos.length; i++){ 
+        if (alunos[i].nome === nomeMatricula) {
+            aluno = alunos[i];
+            break;
+        }
+    }
 
-       case '7' : 
+        
+        case '7' : 
 
        console.log("Saindo do sistema...")
       
