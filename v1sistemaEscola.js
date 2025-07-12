@@ -1,4 +1,26 @@
 let prompt = require('prompt-sync')();
+
+// Sistema de login simples
+const usuarios = [
+    { usuario: 'admin', senha: '1234' },
+    { usuario: 'professor', senha: 'abcd' }
+];
+
+let logado = false;
+do {
+    let usuario = prompt('Usuário: ');
+    let senha = prompt('Senha: ');
+    logado = usuarios.some(u => u.usuario === usuario && u.senha === senha);
+    if (!logado) {
+        console.log('Usuário ou senha inválidos. Tente novamente.\n');
+    }
+} while (!logado);
+
+if (usuario !== 'professor') {
+    console.log('Apenas o professor pode acessar o sistema.');
+    process.exit();
+}
+console.log('Login realizado com sucesso!\n');
 let alunos = [];
 let cursos = [];
 let opcao;
