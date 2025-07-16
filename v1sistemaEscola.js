@@ -1,24 +1,28 @@
 let prompt = require('prompt-sync')();
 
-// Sistema de login simples
-const usuarios = [
-    { usuario: 'admin', senha: '1234' },
-    { usuario: 'professor', senha: 'abcd' }
-];
+let senhaCorreta = "Senai123"; // Define a senha correta para acesso
+let tentativasSenha = 0; 
 
-let logado = false;
-do {
-    let usuario = prompt('Usuário: ');
-    let senha = prompt('Senha: ');
-    logado = usuarios.some(u => u.usuario === usuario && u.senha === senha);
-    if (!logado) {
-        console.log('Usuário ou senha inválidos. Tente novamente.\n');
-    }
-} while (!logado);
 
-if (usuario !== 'professor') {
-    console.log('Apenas o professor pode acessar o sistema.');
-    process.exit();
+while (tentativasSenha < 3) {
+  let senhaDigitada = prompt("Digite a senha para acessar o sistema: ");
+
+  if (senhaDigitada === senhaCorreta) {
+    console.log("Senha correta! Acesso concedido.");
+    break; 
+  } else {
+    tentativasSenha++; 
+    
+    console.log(
+      "Senha incorreta. Tentativas restantes: " + (3 - tentativasSenha)
+    );
+  }
+}
+
+
+if (tentativasSenha === 3) {
+  console.log("Acesso não autorizado. Você excedeu o número de tentativas.");
+  process.exit(); 
 }
 console.log('Login realizado com sucesso!\n');
 let alunos = [];
