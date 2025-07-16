@@ -1,30 +1,5 @@
 let prompt = require('prompt-sync')();
 
-let senhaCorreta = "Senai123"; // Define a senha correta para acesso
-let tentativasSenha = 0; 
-
-
-while (tentativasSenha < 3) {
-  let senhaDigitada = prompt("Digite a senha para acessar o sistema: ");
-
-  if (senhaDigitada === senhaCorreta) {
-    console.log("Senha correta! Acesso concedido.");
-    break; 
-  } else {
-    tentativasSenha++; 
-    
-    console.log(
-      "Senha incorreta. Tentativas restantes: " + (3 - tentativasSenha)
-    );
-  }
-}
-
-
-if (tentativasSenha === 3) {
-  console.log("Acesso não autorizado. Você excedeu o número de tentativas.");
-  process.exit(); 
-}
-console.log('Login realizado com sucesso!\n');
 let alunos = [];
 let cursos = [];
 let opcao;
@@ -156,3 +131,4 @@ for (let i = 0; i < cursos.length; i++){
 }
     
 }while(opcao != 7)
+    
