@@ -3,7 +3,7 @@ let prompt = require('prompt-sync')();
 let senhaCorreta = "video"; 
 let tentativasSenha = 0; 
 
-// ======== Validação de senha ========
+// ======== sistema de senhas ========
 while (tentativasSenha < 3) {
   let senhaDigitada = prompt("Digite a senha para acessar o sistema: ");
 
@@ -21,7 +21,7 @@ if (tentativasSenha === 3) {
   process.exit(); 
 }
 
-// ======== Variáveis principais ========
+
 let cliente = [];
 let filmes = [];
 let opcao;
@@ -142,7 +142,7 @@ function lincarClienteFilmes() {
   }
 }
 
-// ======== Menu principal ========
+// ======== Menu ========
 do {
   console.log("\nMenu:");
   console.log("1 - Cadastrar cliente");
